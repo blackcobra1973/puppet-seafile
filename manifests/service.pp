@@ -21,4 +21,17 @@ class seafile::service
     owner   => 'root',
     group   => 'root',
   }
+
+  #### Enable the service
+  service { 'seafile':
+    ensure    => running,
+    enable    => true,
+    subscribe => File['seafile.service'],
+  }
+
+  service { 'seahub':
+    ensure    => running,
+    enable    => true,
+    subscribe => File['seahub.service'],
+  }
 }
