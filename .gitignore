@@ -1,2 +1,5 @@
-*.gw
+*.gz
 seafile-license.txt
+*.old
+*.org
+*.new
