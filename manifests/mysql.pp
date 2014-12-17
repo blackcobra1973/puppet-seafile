@@ -13,7 +13,6 @@ class seafile::mysql
     if $override_options {
       class { 'mysql::server':
         override_options  => $override_options,
-        require           => [Package['mysql_client']]
       }
     } else {
       # we don't use default options, so error if nothing is found
@@ -26,8 +25,8 @@ class seafile::mysql
     $grants = hiera_hash('mysql::grants')
 
     create_resources('mysql_database', $dbs)
-    create_resources('mysql_user', $dbs)
-    create_resources('mysql_grant', $dbs)
+    create_resources('mysql_user', $users)
+    create_resources('mysql_grant', $grants)
 
   }
 }
