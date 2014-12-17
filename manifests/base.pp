@@ -34,12 +34,16 @@ class seafile::base(
 
   ### Needed directory's
   file { $seafile::base_dir:
-    ensure  => directory,
-    mode    => '0755',
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
   }
 
   file { "${seafile::base_dir}/installed":
     ensure  => directory,
+    owner   => 'root',
+    group   => 'root',
     mode    => '0755',
     require => File[$seafile::base_dir],
   }
@@ -51,6 +55,8 @@ class seafile::base(
     file { "${seafile::base_dir}/seafile-license.txt":
       ensure  => file,
       source  => 'puppet:///modules/seafile/seafile-license.txt',
+      owner   => 'root',
+      group   => 'root',
       mode    => '0444',
       require => File[$seafile::base_dir],
     }
@@ -60,6 +66,8 @@ class seafile::base(
       ensure  => file,
       path    => "${seafile::base_dir}/installed/seafile-pro-server_${seafile::version}_x86-64.tar.gz",
       source  => "puppet:///modules/seafile/seafile-pro-server_${seafile::version}_x86-64.tar.gz",
+      owner   => 'root',
+      group   => 'root',
       mode    => '0644',
       require => File["${seafile::base_dir}/installed"],
     }
@@ -70,6 +78,8 @@ class seafile::base(
       ensure  => file,
       path    => "${seafile::base_dir}/installed/seafile-server_${seafile::version}_x86-64.tar.gz",
       source  => "https://bitbucket.org/haiwen/seafile/downloads/seafile-server_${seafile::version}_x86-64.tar.gz",
+      owner   => 'root',
+      group   => 'root',
       mode    => '0644',
       require => File["${seafile::base_dir}/installed"],
     }
