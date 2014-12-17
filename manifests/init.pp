@@ -13,5 +13,6 @@ class seafile (
   class   { 'seafile::mysql': }->
   class   { 'seafile::base': }->
   class   { 'seafile::unpack': }->
+  class   { 'seafile::service': }->
   anchor  { 'seafile::end': }
 }
