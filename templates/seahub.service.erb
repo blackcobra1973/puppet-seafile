@@ -3,7 +3,7 @@ Description=Daemon to Seafile hub daemon
 After=syslog.target
 
 [Service]
-ExecStart=<%= seafile::base_dir %>/seafile-server-latest/seahub.sh restart
+ExecStart=<%= scope.lookupvar('seafile::base_dir') %>/seafile-server-latest/seahub.sh restart
 Type=forking
 
 [Install]
