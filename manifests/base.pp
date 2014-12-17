@@ -7,11 +7,12 @@ class seafile::base(
 )
 {
 
-## removed: python-imaging
+## removed: python-imaging -> python-pillow  in CentOS 7
 
   $seafile_packages = [ 'MySQL-python',
                         'python-simplejson',
                         'python-setuptools',
+                        'python-pillow',
                       ]
 
   $pro_extra_packages =   [ 'poppler-utils',
