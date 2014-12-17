@@ -7,16 +7,17 @@ class seafile::base(
 )
 {
 
-  $seafile_packages = [ 'python-imaging',
-                        'MySQL-python',
+## removed: python-imaging
+
+  $seafile_packages = [ 'MySQL-python',
                         'python-simplejson',
-                        'python-setuptools'
+                        'python-setuptools',
                       ]
 
   $pro_extra_packages =   [ 'poppler-utils',
                             'libreoffice',
                             'libreoffice-headless',
-                            'libreoffice-pyuno'
+                            'libreoffice-pyuno',
                           ]
 
   ### Default Packages to install
