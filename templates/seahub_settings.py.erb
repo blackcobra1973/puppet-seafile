@@ -1,0 +1,19 @@
+SECRET_KEY = "<%= scope.lookupvar('seafile::secret_key')%>"
+
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'seahub_db',
+    'USER': '<%= scope.lookupvar('seafile::mysql_user')%>',
+    'PASSWORD': '<%= scope.lookupvar('seafile::mysql_pass')%>',
+    'HOST': '<%= scope.lookupvar('seafile::mysql_host')%>',
+    'PORT': '3306',
+    'OPTIONS': {
+      'init_command': 'SET storage_engine=INNODB',
+    }
+  }
+}
+<% if has_variable?('seafile::use_nginx') && seafile::use_nginx != :undef -%>
+
+FILE_SERVER_ROOT = 'http://<%= @fqdn %>/seafhttp'
+<% end -%>

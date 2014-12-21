@@ -1,0 +1,20 @@
+[General]
+USER_NAME = Seafile
+ID = <%= scope.lookupvar('seafile::id')%>
+NAME = Seafile
+SERVICE_URL = http://<%= @fqdn %>
+
+[Network]
+PORT = 10001
+
+[Client]
+PORT = 13418
+
+[Database]
+ENGINE = mysql
+HOST = <%= scope.lookupvar('seafile::mysql_host')%>
+PORT = 3306
+USER = <%= scope.lookupvar('seafile::mysql_user')%>
+PASSWD = <%= scope.lookupvar('seafile::mysql_pass')%>
+DB = ccnet_db
+CONNECTION_CHARSET = utf8
