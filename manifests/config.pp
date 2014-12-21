@@ -22,7 +22,7 @@ class seafile::config
     }
   }
 
-  if $seafile::use_nginx
+  if $seafile::use_nginx or $seafile::use_memcached
   {
     file { 'seahub_settings.py':
       ensure  =>  file,

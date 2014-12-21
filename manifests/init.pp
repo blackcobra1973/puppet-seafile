@@ -18,6 +18,7 @@ class seafile (
   anchor  { 'seafile::start': }->
   class   { 'seafile::user': }->
   class   { 'seafile::mysql': }->
+  class   { 'seafile::memcached': }->
   class   { 'seafile::base': }->
   class   { 'seafile::unpack': }->
   class   { 'seafile::service': }->
