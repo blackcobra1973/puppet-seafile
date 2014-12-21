@@ -13,13 +13,28 @@ class seafile::service
     group   => 'root',
   }
 
-  file { 'seahub.service':
-    ensure  => file,
-    path    => '/etc/systemd/system/seahub.service',
-    content => template('seafile/seahub.service.erb'),
-    mode    => '0644',
-    owner   => 'root',
-    group   => 'root',
+  if $seafile::use_nginx
+  {
+    file { 'seahub.service':
+      ensure  => file,
+      path    => '/etc/systemd/system/seahub.service',
+      content => template('seafile/seahub.service.nginx.erb'),
+      mode    => '0644',
+      owner   => 'root',
+      group   => 'root',
+    }
+
+  }
+  else
+  {
+    file { 'seahub.service':
+      ensure  => file,
+      path    => '/etc/systemd/system/seahub.service',
+      content => template('seafile/seahub.service.erb'),
+      mode    => '0644',
+      owner   => 'root',
+      group   => 'root',
+    }
   }
 
   #### Enable the service

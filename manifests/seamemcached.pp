@@ -6,6 +6,11 @@ class seafile::seamemcached
 {
   if $seafile::use_memcached
   {
+
+    package { 'python-memcached':
+      ensure => installed,
+    }
+
     class { 'memcached':
       max_memory  => 128,
       listen_ip   => '127.0.0.1',
