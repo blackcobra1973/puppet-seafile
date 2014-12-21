@@ -18,10 +18,10 @@ class seafile (
   anchor  { 'seafile::start': }->
   class   { 'seafile::user': }->
   class   { 'seafile::mysql': }->
-  class   { 'seafile::memcached': }->
+  class   { 'seafile::seamemcached': }->
   class   { 'seafile::base': }->
   class   { 'seafile::unpack': }->
-  class   { 'seafile::service': }->
   class   { 'seafile::config': }->
+  class   { 'seafile::service': }->
   anchor  { 'seafile::end': }
 }

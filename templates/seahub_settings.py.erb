@@ -13,16 +13,16 @@ DATABASES = {
     }
   }
 }
-<% if has_variable?('seafile::use_nginx') && seafile::use_nginx != false -%>
+<% if @use_nginx -%>
 
 FILE_SERVER_ROOT = 'http://<%= @fqdn %>/seafhttp'
 <% end -%>
-<% if has_variable?('seafile::use_nginx') && seafile::use_nginx != false -%>
+<% if @use_memcached -%>
 
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
+  'default': {
+    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+    'LOCATION': '127.0.0.1:11211',
+  }
 }
 <% end -%>

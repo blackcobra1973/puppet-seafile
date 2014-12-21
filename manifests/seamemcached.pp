@@ -2,7 +2,7 @@
 #
 # Install and configure memcached
 #
-class seafile::memcached
+class seafile::seamemcached
 {
   if $seafile::use_memcached
   {

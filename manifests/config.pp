@@ -16,9 +16,6 @@ class seafile::config
       mode    =>  '0644',
       owner   =>  'root',
       group   =>  'root',
-      notify  =>  [ Service['seafile'],
-                    Service['seahub'],
-                  ],
     }
   }
 
@@ -32,9 +29,6 @@ class seafile::config
       mode    =>  '0644',
       owner   =>  'root',
       group   =>  'root',
-      notify  =>  [ Service['seafile'],
-                    Service['seahub'],
-                  ],
     }
 
   }
