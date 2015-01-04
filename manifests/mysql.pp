@@ -4,7 +4,7 @@
 #
 class seafile::mysql
 {
-  if $seafile::use_mysql
+  if $seafile::use_mysql and ( !$seafile::use_global_mysql )
   {
   #  include mysql::server
 
