@@ -12,6 +12,7 @@ class seafile (
   $mysql_pass       = undef,
   $mysql_host       = '127.0.0.1',
   $use_nginx        = false,
+  $use_apache       = false,
   $use_memcached    = false,
   $base_dir         = '/opt/seafile',
   $version          = '4.0.0',

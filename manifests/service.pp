@@ -13,7 +13,7 @@ class seafile::service
     group   => 'root',
   }
 
-  if $seafile::use_nginx
+  if $seafile::use_nginx or $seafile::use_apache
   {
     file { 'seahub.service':
       ensure  => file,
