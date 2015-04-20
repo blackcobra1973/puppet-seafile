@@ -1,6 +1,7 @@
 [Unit]
 Description=Daemon to Seafile hub daemon
-After=syslog.target
+Requires=seafile.service
+After=syslog.target seafile.service
 
 [Service]
 ExecStart=<%= scope.lookupvar('seafile::base_dir') %>/seafile-server-latest/seahub.sh restart-fastcgi
