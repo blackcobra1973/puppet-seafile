@@ -6,7 +6,10 @@ class seafile::mysql
 {
   if $seafile::use_mysql and ( !$seafile::use_global_mysql )
   {
-  #  include mysql::server
+
+    if $seafile::use_global_mysql {
+      include mysql::server
+    }
 
     $override_options = hiera_hash('mysql::override_options')
 
