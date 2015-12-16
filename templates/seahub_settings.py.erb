@@ -26,3 +26,11 @@ CACHES = {
   }
 }
 <% end -%>
+
+EMAIL_USE_TLS = <%= scope.lookupvar('seafile::email_TLS')%>
+EMAIL_HOST = '<%= scope.lookupvar('seafile::email_host')%>'
+EMAIL_HOST_USER = '<%= scope.lookupvar('seafile::email_user')%>'
+EMAIL_HOST_PASSWORD = '<%= scope.lookupvar('seafile::email_password')%>'
+EMAIL_PORT = '<%= scope.lookupvar('seafile::email_port')%>'
+DEFAULT_FROM_EMAIL = '<%= scope.lookupvar('seafile::email_from')%>'
+SERVER_EMAIL = '<%= scope.lookupvar('seafile::server_email')%>'

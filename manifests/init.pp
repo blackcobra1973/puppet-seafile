@@ -18,6 +18,13 @@ class seafile (
   $version          = '4.0.0',
   $secret_key       = '',
   $id               = '',
+  $email_TLS        = 'False',
+  $email_host       = 'smtp.example.com',
+  $email_user       = '',
+  $email_password   = '',
+  $email_port       = '25',
+  $email_from       = 'EMAIL_HOST_USER',
+  $server_email     = 'EMAIL_HOST_USER',
 )
 {
 
