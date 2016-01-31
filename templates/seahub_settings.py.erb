@@ -1,0 +1,36 @@
+SECRET_KEY = "<%= scope.lookupvar('seafile::secret_key')%>"
+
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'seahub_db',
+    'USER': '<%= scope.lookupvar('seafile::mysql_user')%>',
+    'PASSWORD': '<%= scope.lookupvar('seafile::mysql_pass')%>',
+    'HOST': '<%= scope.lookupvar('seafile::mysql_host')%>',
+    'PORT': '3306',
+    'OPTIONS': {
+      'init_command': 'SET storage_engine=INNODB',
+    }
+  }
+}
+<% if @use_nginx -%>
+
+FILE_SERVER_ROOT = 'https://<%= @fqdn %>/seafhttp'
+<% end -%>
+<% if @use_memcached -%>
+
+CACHES = {
+  'default': {
+    'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+    'LOCATION': '127.0.0.1:11211',
+  }
+}
+<% end -%>
+
+EMAIL_USE_TLS = <%= scope.lookupvar('seafile::email_TLS')%>
+EMAIL_HOST = '<%= scope.lookupvar('seafile::email_host')%>'
+EMAIL_HOST_USER = '<%= scope.lookupvar('seafile::email_user')%>'
+EMAIL_HOST_PASSWORD = '<%= scope.lookupvar('seafile::email_password')%>'
+EMAIL_PORT = '<%= scope.lookupvar('seafile::email_port')%>'
+DEFAULT_FROM_EMAIL = '<%= scope.lookupvar('seafile::email_from')%>'
+SERVER_EMAIL = '<%= scope.lookupvar('seafile::server_email')%>'

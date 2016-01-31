@@ -1,0 +1,11 @@
+[Unit]
+Description=Daemon to Seafile hub daemon
+Requires=seafile.service
+After=syslog.target seafile.service
+
+[Service]
+ExecStart=<%= scope.lookupvar('seafile::base_dir') %>/seafile-server-latest/seahub.sh restart-fastcgi
+Type=forking
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Daemon to Seafile
+After=syslog.target
+
+[Service]
+ExecStart=<%= scope.lookupvar('seafile::base_dir') %>/seafile-server-latest/seafile.sh restart
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
