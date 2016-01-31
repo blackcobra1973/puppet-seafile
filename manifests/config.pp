@@ -14,7 +14,7 @@ class seafile::config
   {
     file { 'ccnet.conf.erb':
       ensure  =>  file,
-      path    =>  "${seafile::base_dir}/ccnet/ccnet.conf",
+      path    =>  "${seafile::base_dir}/conf/ccnet.conf",
       content =>  template('seafile/ccnet.conf.erb'),
       replace =>  false,
       mode    =>  '0644',
@@ -27,7 +27,7 @@ class seafile::config
   {
     file { 'seahub_settings.py':
       ensure  =>  file,
-      path    =>  "${seafile::base_dir}/seahub_settings.py",
+      path    =>  "${seafile::base_dir}/conf/seahub_settings.py",
       content =>  template('seafile/seahub_settings.py.erb'),
       replace =>  false,
       mode    =>  '0644',
