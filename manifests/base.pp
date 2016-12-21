@@ -17,7 +17,7 @@ class seafile::base(
 
   $pro_extra_packages =   [ 'poppler-utils',
                             'libreoffice',
-                            'libreoffice-headless',
+                            'libreoffice-ure',
                             'libreoffice-pyuno',
                           ]
 
