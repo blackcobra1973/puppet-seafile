@@ -8,9 +8,9 @@ class seafile::base(
 {
 
 ## removed: python-imaging -> python-pillow  in CentOS 7
+## Removed: python-simplejson -> Not exists anymore
 
   $seafile_packages = [ 'MySQL-python',
-                        'python-simplejson',
                         'python-setuptools',
                         'python-pillow',
                       ]
